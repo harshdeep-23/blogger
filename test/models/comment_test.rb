@@ -29,6 +29,8 @@ class CommentTest < ActiveSupport::TestCase
   end
 
   test "should be associated with an article" do
+    article = Article.find(@comment.article_id)
+    assert article.valid?
     @comment.article_id = nil
     assert_not @comment.valid?
   end
